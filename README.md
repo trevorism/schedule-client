@@ -12,7 +12,14 @@ Current version: 0.1.0
 
 ## How to Use 
 ```
+        ScheduledTaskFactory factory = new DefaultScheduledTaskFactory()
+        EndpointSpec endpointSpec = new EndpointSpec("https://testing.trevorism.com/api/ping", HttpMethod.GET, null)
+        ScheduledTask st = factory.createImmediateTask("testSched", Instant.now().plus(60 * 60 * 3).toDate(), endpointSpec)
+        ScheduleService service = new DefaultScheduleService()
+        service.create(st)
 ```
+
+Note: This library assumes the library consumer has a valid credentials per https://github.com/trevorism/secure-http-utils
 
 ## How to Build
 `gradle clean build`
