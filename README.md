@@ -8,7 +8,7 @@
 
 Java client for Trevorism scheduling API: [Trevorism Schedule](https://github.com/trevorism/schedule)
 
-Current version: 0.1.0
+Current version: 0.2.0
 
 ## How to Use 
 ```

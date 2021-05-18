@@ -13,8 +13,7 @@ import java.util.List;
 public class DefaultScheduleService implements ScheduleService {
 
     private SecureHttpClient secureHttpClient = new DefaultSecureHttpClient();
-    //private static final String SCHEDULER_BASE_URL = "https://schedule.datastore.trevorism.com/api/schedule";
-    private static final String SCHEDULER_BASE_URL = "http://localhost:8080/api/schedule";
+    private static final String SCHEDULER_BASE_URL = "https://schedule.datastore.trevorism.com/api/schedule";
 
     private final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
 
