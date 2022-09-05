@@ -22,6 +22,11 @@ public class DefaultScheduledTaskFactory implements ScheduledTaskFactory {
     }
 
     @Override
+    public ScheduledTask createWeeklyTask(String name, Date startDate, EndpointSpec spec) {
+        return createWeeklyTask(name, startDate, spec, true);
+    }
+
+    @Override
     public ScheduledTask createImmediateTask(String name, Date startDate, EndpointSpec spec, boolean enabled) {
         ScheduledTask scheduledTask = new ScheduledTask();
         scheduledTask.setType(ScheduledTaskType.IMMEDIATE.toString().toLowerCase());
@@ -41,6 +46,14 @@ public class DefaultScheduledTaskFactory implements ScheduledTaskFactory {
     public ScheduledTask createDailyTask(String name, Date startDate, EndpointSpec spec, boolean enabled) {
         ScheduledTask scheduledTask = new ScheduledTask();
         scheduledTask.setType(ScheduledTaskType.DAILY.toString().toLowerCase());
+        setCommonProperties(name, startDate, spec, enabled, scheduledTask);
+        return scheduledTask;
+    }
+
+    @Override
+    public ScheduledTask createWeeklyTask(String name, Date startDate, EndpointSpec spec, boolean enabled) {
+        ScheduledTask scheduledTask = new ScheduledTask();
+        scheduledTask.setType(ScheduledTaskType.WEEKLY.toString().toLowerCase());
         setCommonProperties(name, startDate, spec, enabled, scheduledTask);
         return scheduledTask;
     }

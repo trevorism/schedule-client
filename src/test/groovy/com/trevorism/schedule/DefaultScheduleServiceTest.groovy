@@ -45,7 +45,6 @@ class DefaultScheduleServiceTest {
         ScheduledTaskFactory factory = new DefaultScheduledTaskFactory()
         EndpointSpec endpointSpec = new EndpointSpec("https://testing.trevorism.com/api/ping", HttpMethod.GET, null)
         return factory.createImmediateTask("testSched", Instant.now().plus(60 * 60 * 3).toDate(), endpointSpec, true)
-
     }
 
     @Test
