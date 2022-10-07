@@ -1,3 +1,7 @@
+## 0.7.0
+
+Change URL to use schedule.action.trevorism.com
+
 ## 0.6.0
 
 Update dependencies.

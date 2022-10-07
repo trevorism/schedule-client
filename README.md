@@ -1,4 +1,4 @@
-# eventhub-client
+# schedule-client
 ![Build](https://github.com/trevorism/schedule-client/actions/workflows/build.yml/badge.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/trevorism/schedule-client)
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/schedule-client)
@@ -7,7 +7,6 @@
 Java client for Trevorism scheduling API: [Trevorism Schedule](https://github.com/trevorism/schedule)
 
 Latest [Version](https://github.com/trevorism/schedule-client/releases/latest)
-
 
 ## How to Use 
 ```
