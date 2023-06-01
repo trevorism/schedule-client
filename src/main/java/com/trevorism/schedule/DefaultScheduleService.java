@@ -3,7 +3,7 @@ package com.trevorism.schedule;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.trevorism.https.DefaultSecureHttpClient;
+import com.trevorism.https.AppClientSecureHttpClient;
 import com.trevorism.https.SecureHttpClient;
 import com.trevorism.schedule.model.ScheduledTask;
 
@@ -12,10 +12,17 @@ import java.util.List;
 
 public class DefaultScheduleService implements ScheduleService {
 
-    private SecureHttpClient secureHttpClient = new DefaultSecureHttpClient();
+    private SecureHttpClient secureHttpClient;
     private static final String SCHEDULER_BASE_URL = "https://schedule.action.trevorism.com/api/schedule";
-
     private final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
+
+    public DefaultScheduleService(){
+        secureHttpClient = new AppClientSecureHttpClient();
+    }
+
+    public DefaultScheduleService(SecureHttpClient secureHttpClient){
+        this.secureHttpClient = secureHttpClient;
+    }
 
     @Override
     public ScheduledTask create(ScheduledTask schedule) {
