@@ -6,6 +6,7 @@ public class ScheduledTask {
 
     public static final ScheduledTask NULL_SCHEDULED_TASK = new ScheduledTask();
 
+    private String id;
     private String name;
     private String type;
     private Date startDate;
@@ -15,9 +16,13 @@ public class ScheduledTask {
     private String httpMethod;
     private String requestJson;
 
-    public static boolean isNullObject(ScheduledTask task){
+    public static boolean isNullObject(ScheduledTask task) {
         return null == task.getName();
     }
+
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id;  }
 
     public String getName() {
         return name;
@@ -27,9 +32,7 @@ public class ScheduledTask {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
+    public String getType() { return type; }
 
     public void setType(String type) {
         this.type = type;
@@ -39,17 +42,13 @@ public class ScheduledTask {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
+    public void setStartDate(Date startDate) { this.startDate = startDate; }
 
     public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
+    public void setEnabled(boolean enabled) { this.enabled = enabled; }
 
     public String getEndpoint() {
         return endpoint;
@@ -75,16 +74,4 @@ public class ScheduledTask {
         this.requestJson = requestJson;
     }
 
-    @Override
-    public String toString() {
-        return "ScheduledTask{" +
-                "name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                ", startDate=" + startDate +
-                ", enabled=" + enabled +
-                ", endpoint='" + endpoint + '\'' +
-                ", httpMethod='" + httpMethod + '\'' +
-                ", requestJson='" + requestJson + '\'' +
-                '}';
-    }
 }

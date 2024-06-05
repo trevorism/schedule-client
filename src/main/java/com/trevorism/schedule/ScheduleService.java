@@ -8,7 +8,7 @@ public interface ScheduleService {
 
     ScheduledTask create(ScheduledTask schedule);
     ScheduledTask update(ScheduledTask scheduledTask);
-    ScheduledTask getByName(String name);
+    ScheduledTask get(String id);
     List<ScheduledTask> list();
-    boolean delete(String name);
+    ScheduledTask delete(String id);
 }

@@ -1,3 +1,7 @@
+## 1.0.0
+
+Client now uses id based schedule service.
+
 ## 0.8.0
 
 Update dependencies.

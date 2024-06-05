@@ -8,8 +8,8 @@ import com.trevorism.schedule.factory.EndpointSpec
 import com.trevorism.schedule.factory.ScheduledTaskFactory
 import com.trevorism.schedule.model.HttpMethod
 import com.trevorism.schedule.model.ScheduledTask
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 import java.time.Instant
 
@@ -17,7 +17,7 @@ class DefaultScheduleServiceTest {
 
     ScheduleService service = new DefaultScheduleService()
 
-    @Before
+    @BeforeEach
     void setup() {
         final Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").create();
 

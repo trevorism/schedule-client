@@ -28,16 +28,14 @@ public class DefaultScheduleService implements ScheduleService {
     public ScheduledTask create(ScheduledTask schedule) {
         String scheduleJson = gson.toJson(schedule);
         String json = secureHttpClient.post(SCHEDULER_BASE_URL, scheduleJson);
-        ScheduledTask task = gson.fromJson(json, ScheduledTask.class);
-        return task;
+        return gson.fromJson(json, ScheduledTask.class);
     }
 
     @Override
-    public ScheduledTask getByName(String name) {
+    public ScheduledTask get(String id) {
         try {
-            String json = secureHttpClient.get(SCHEDULER_BASE_URL + "/" + name.toLowerCase());
-            ScheduledTask task = gson.fromJson(json, ScheduledTask.class);
-            return task;
+            String json = secureHttpClient.get(SCHEDULER_BASE_URL + "/" + id);
+            return gson.fromJson(json, ScheduledTask.class);
         } catch (Exception ignored) {
             return ScheduledTask.NULL_SCHEDULED_TASK;
         }
@@ -47,9 +45,8 @@ public class DefaultScheduleService implements ScheduleService {
     public ScheduledTask update(ScheduledTask scheduledTask) {
         try {
             String scheduleJson = gson.toJson(scheduledTask);
-            String json = secureHttpClient.put(SCHEDULER_BASE_URL + "/" + scheduledTask.getName().toLowerCase(), scheduleJson);
-            ScheduledTask task = gson.fromJson(json, ScheduledTask.class);
-            return task;
+            String json = secureHttpClient.put(SCHEDULER_BASE_URL + "/" + scheduledTask.getId(), scheduleJson);
+            return gson.fromJson(json, ScheduledTask.class);
         } catch (Exception ignored) {
             return ScheduledTask.NULL_SCHEDULED_TASK;
         }
@@ -63,8 +60,8 @@ public class DefaultScheduleService implements ScheduleService {
     }
 
     @Override
-    public boolean delete(String name) {
-        String json = secureHttpClient.delete(SCHEDULER_BASE_URL + "/" + name.toLowerCase());
-        return Boolean.parseBoolean(json);
+    public ScheduledTask delete(String id) {
+        String json = secureHttpClient.delete(SCHEDULER_BASE_URL + "/" + id);
+        return gson.fromJson(json, ScheduledTask.class);
     }
 }
